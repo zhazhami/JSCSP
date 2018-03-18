@@ -1,0 +1,16 @@
+body{
+    width: 20rem;
+    height: 30rem;
+}
+
+.title{
+    border-bottom: 1px solid gray;
+    font-size: 2rem;
+    color: #469ff1;
+    font-weight: 900;
+}
+
+.p-status{
+    margin-top: 10px;
+    font-size: 2rem;
+}

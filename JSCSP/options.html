@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Policy</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="css/options.css">
+    <link href="css/jsoneditor.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/proton/style.min.css" />
+
+    <script src="js/jsoneditor.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="row wrapper">
+        <div class="col-md-2 left">
+            <h1>JSCSP Policies</h1>
+            <ul class="nav nav-pills nav-stacked" id="urls">
+            </ul>
+        </div>
+        <div class="col-md-10 right">
+            <div class="content">
+                <div class="row header">
+                    <div class="col-md-2 name">policy.json</div>
+                    <div class="col-md-3 col-md-offset-7 action">
+                        <button id="save" class="btn btn-success save-btn">Save</button>
+                        <button id="delete" class="btn btn-danger delete-btn">Delete</button>
+                    </div>
+                </div>
+                <div id="jsoneditor" style="width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/options.js"></script>
+</body>
+
+</html>

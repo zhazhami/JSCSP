@@ -1,0 +1,59 @@
+{
+    "name": "JSCSP",
+    "version": "0.0.1",
+    "manifest_version": 2,
+    "content_scripts": [
+        {
+            "all_frames": false,
+            "matches": [
+                "http://*/*",
+                "https://*/*",
+                "file://*/*"
+            ],
+            "exclude_matches":[
+                "https://*.google.com/*",
+                "https://*.google.com.hk/*"
+            ],
+            "js": [
+                "js/enf_policy.js"
+            ],
+            "run_at": "document_start"
+        },
+        {
+            "all_frames": false,
+            "matches": [
+                "http://*/*",
+                "https://*/*",
+                "file://*/*"
+            ],
+            "exclude_matches":[
+                "https://*.google.com/*",
+                "https://*.google.com.hk/*"
+            ],
+            "js": [
+                "js/gen_policy.js"
+            ],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+        "webRequest",
+        "webRequestBlocking",
+        "webNavigation",
+        "tabs",
+        "<all_urls>"
+    ],
+    "browser_action": {
+        "default_icon": {
+            "19": "img/icon.png",
+            "38": "img/icon.png"
+        },
+        "default_popup": "popup.html"
+    },
+    "options_page": "options.html",
+    "background": {
+        "scripts": [
+            "js/bg.js"
+        ]
+    }
+}
