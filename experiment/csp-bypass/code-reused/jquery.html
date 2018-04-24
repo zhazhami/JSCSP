@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSP Bypass(code-reused)</title>
+    <!-- <meta http-equiv="content-security-policy" content="script-src 'nonce-secret123' 'strict-dynamic';"> -->
+    <script nonce=secret123 src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.js"></script>
+</head>
+
+<body>
+    <script nonce=secret123>
+        $(document).ready(function () {
+            $(".container").after($(".child"));
+        });
+    </script>
+    <!-- payload -->
+    <form class="child">
+        <input name="ownerDocument" />
+        <script>alert(1);</script>
+    </form>
+    <!-- end -->
+    <p class="container"></p>
+</body>
+
+</html>

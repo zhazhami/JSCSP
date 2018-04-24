@@ -22,10 +22,15 @@ chrome.runtime.onMessage.addListener(function (message, sender, sendResponse) {
         for(var i in url_policy['element']){
             src = url_policy['element'][i]['src'];
             href = url_policy['element'][i]['href'];
-            if(src)
-            url_policy['request_src'] = url_policy['request_src'].concat(src);
-            if(href)
-            url_policy['request_src'] = url_policy['request_src'].concat(href);
+            if(!url_policy['request_src'])continue;
+            for(i in src){
+                if(url_policy['request_src'].indexOf(src[i])==-1)
+                url_policy['request_src'].push(src[i]);
+            }
+            for(i in href){
+                if(url_policy['request_src'].indexOf(href[i])==-1)
+                url_policy['request_src'].push(href[i]);
+            }
         }
         policy[url] = JSON.stringify(url_policy);
         localStorage['jscsp_policy'] = JSON.stringify(policy);

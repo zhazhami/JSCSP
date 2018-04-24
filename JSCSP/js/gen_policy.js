@@ -16,7 +16,7 @@
         };
         JSCSP._random = 'jscsp-' + Math.random().toString(36).replace(/\./g, '');
         JSCSP.url_pattern = /^((?:https?|ftp|file):\/\/[A-Za-z0-9&@#\-%?=~_|!:.]+)[\/-A-Za-z0-9+&@#%=~_|]/;
-        JSCSP.dangerous_tag = ['iframe','script','object','svg','link'];
+        JSCSP.dangerous_tag = ['iframe','script','object','svg','link','a'];
     }
 
     // Excute javascript code in origin web page

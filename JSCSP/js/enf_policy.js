@@ -147,12 +147,16 @@ function run() {
         var p = e.parentNode;
         var childs = p.children;
         var hook_count = 0;
+        var del_count = 0;
         for (var i = 0; i < childs.length; i++) {
             if(childs.item(i).getAttribute("class")=='jscsp-hook'){
                 hook_count++;
             }
+            else if(childs.item(i).getAttribute("allow")=='false'){
+                del_count++;
+            }
             if (e == childs.item(i)) {
-                return i-hook_count;
+                return i-hook_count-del_count;
             }
         }
         return -1;
@@ -165,6 +169,18 @@ function run() {
         if (!e.parentNode) return "document";
         return JSCSP.get_position(e.parentNode) + "," + element_index(e);
     }
+
+
+    /**
+     * Html decode
+     */
+    this.htmldecode = function(str) {
+        str = str.replace(/&lt;?/g, '<');
+        str = str.replace(/&gt;?/g, '>');
+        return str.replace(/&#(x)?([^&]{1,5});?/g, function($, $1, $2) {
+            return String.fromCharCode(parseInt($2, $1 ? 16 : 10));
+        });
+    };
 
     /**
      * Enforce policies on script elements
@@ -203,6 +219,39 @@ function run() {
                         }
                         break;
                     }
+                }
+            }
+        }
+    }
+
+    /**
+     * Enforce policies on code-reuse payloads
+     */
+    this.enf_code_reuse = function(){
+        var divs =  JSCSP.doc.querySelectorAll("div");
+        for(var i=0;i<divs.length;i++){
+            // bootstrap bypass
+            if (divs[i].getAttribute('data-toggle')=='tooltip') {
+                title = this.htmldecode(divs[i].getAttribute('title'));
+                if(title.indexOf('<')!=-1 || title.indexOf('>')!=-1){
+                    console.log("Evil element:",divs[i].outerHTML);
+                    divs[i].setAttribute("allow", "false");
+                }
+            }
+            // jquery mobile bypass
+            if (divs[i].getAttribute('data-role')=='popup') {
+                id = this.htmldecode(divs[i].getAttribute('id'));
+                if(id.indexOf('<')!=-1 || id.indexOf('>')!=-1){
+                    console.log("Evil element:",divs[i].outerHTML);
+                    divs[i].setAttribute("allow", "false");
+                }
+            }
+            // bootstrap bypass
+            if (divs[i].getAttribute('data-toggle')=='tooltip') {
+                title = this.htmldecode(divs[i].getAttribute('title'));
+                if(title.indexOf('<')!=-1 || title.indexOf('>')!=-1){
+                    console.log("Evil element:",divs[i].outerHTML);
+                    divs[i].setAttribute("allow", "false");
                 }
             }
         }
@@ -351,10 +400,9 @@ function run() {
                         elements[i].setAttribute("allow", "false");
                     }
                 }
-            
             }
         }
-
+        JSCSP.enf_code_reuse();
         JSCSP.enf_scripts();
         JSCSP.enf_event_handler();
         

